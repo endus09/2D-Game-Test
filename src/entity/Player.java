@@ -35,10 +35,10 @@ public class Player extends Entity
     {
         try
         {
-            walk1 = ImageIO.read(getClass().getResourceAsStream("/player/pencilman_0001.png"));
-            walk2 = ImageIO.read(getClass().getResourceAsStream("/player/pencilman_0002.png"));
-            walk3 = ImageIO.read(getClass().getResourceAsStream("/player/pencilman_0003.png"));
-            walk4 = ImageIO.read(getClass().getResourceAsStream("/player/pencilman_0004.png"));
+            walk1 = ImageIO.read(getClass().getResourceAsStream("/playerAssets/pencilman_0001.png"));
+            walk2 = ImageIO.read(getClass().getResourceAsStream("/playerAssets/pencilman_0002.png"));
+            walk3 = ImageIO.read(getClass().getResourceAsStream("/playerAssets/pencilman_0003.png"));
+            walk4 = ImageIO.read(getClass().getResourceAsStream("/playerAssets/pencilman_0004.png"));
         } catch (IOException e)
         {
             e.printStackTrace();

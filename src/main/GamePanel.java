@@ -8,6 +8,7 @@ import java.awt.Graphics2D;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JPanel;
+import tile.TileManager;
 
 // by endus
 public class GamePanel extends JPanel implements Runnable
@@ -15,7 +16,7 @@ public class GamePanel extends JPanel implements Runnable
 
     // SCREEN SETTINGS
     final int originalTileSize = 16; // 16*16 tile
-    final int scale = 3;
+    final int scale = 5;
 
     public final int tileSize = originalTileSize * scale; // 48*48 tile
     final int maxScreenCol = 16;
@@ -28,17 +29,15 @@ public class GamePanel extends JPanel implements Runnable
 
     InputHandler input = new InputHandler();
     Thread gameThread;
+    TileManager tileM = new TileManager(this);
     Player player = new Player(this, input);
 
-    // Set player default position
-    int playerX = 100;
-    int playerY = 100;
-    int playerSpeed = 4;
+
 
     public GamePanel()
     {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
-        this.setBackground(new Color(0, 100, 0));
+        this.setBackground(Color.BLACK);
         this.setDoubleBuffered(true);
         this.setFocusable(true);  // make sure you set this so the program can focus on inputs
         this.addKeyListener(input);  // adding a key listener is important
@@ -125,8 +124,9 @@ public class GamePanel extends JPanel implements Runnable
         super.paintComponent(g);
 
         Graphics2D g2 = (Graphics2D) g;
+        tileM.draw(g2);
         player.draw(g2);
-
+        
         g2.dispose();
     }
 }
